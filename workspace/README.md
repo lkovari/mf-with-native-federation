@@ -1,6 +1,6 @@
 Create an Angular Workspace: ng new micro-fe-workspace --create-application=false
 
-Go to the workspace folder, create the Shell Project
+Go to the workspace folder
 Create Microfrontend Projects:
 - ng generate application shell --routing=true --style=scss
 - ng generate application mf-a --routing=true --style=scss (Create mf-a)
