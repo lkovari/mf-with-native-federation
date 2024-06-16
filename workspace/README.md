@@ -1,56 +1,39 @@
-# Workspace
+Create an Angular Workspace: ng new micro-fe-workspace --create-application=false
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+Go to the workspace folder, create the Shell Project
+Create Microfrontend Projects:
+- ng generate application shell --routing=true --style=scss
+- ng generate application mf-a --routing=true --style=scss (Create mf-a)
+- ng generate application mf-b --routing=true --style=scss (Create mif-b)
 
-## Development server
+Create Shared Library: ng generate library lk-common-lib
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Add "style": "scss" to angular.json at lk-common-lib
 
-## Code scaffolding
+Add a component (AngularVersionComponent) to Shared Library: ng generate component angular-version --project=shared-
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Build and Publish Shared Library: (Navigate to the workspace root) ng build lk-common-lib --configuration production
 
-## Build
+(Navigate to the `dist/lk-common-lib` directory) npm publish --access=public (After version bump)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install Bootstrap for Styling: npm install @ng-bootstrap/ng-bootstrap
 
-## Running unit tests
+Install Native Federation Dependency: npm i @angular-architects/native-federation -D
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Configure Microfrontends for Federation:
+- mf-b: ng add @angular-architects/native-federation:init --project mf-b --port 4202 -type remote
+- mf-a: ng add @angular-architects/native-federation:init --project mf-a --port 4201 -type remote
+- configure Shell as Dynamic Host: ng add @angular-architects/native-federation:init --project shell --port 4200 -type dynamic-host
+  
+Rename Application Component Selectors (if necessary) to avoid conflicts.
 
-## Running end-to-end tests
+Add Routes to Shell Application: (Create `app.routes.ts` in the shell project)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Implement Navigation in Shell: (Modify `app.component.html` in the shell project)
 
-## Further help
+Add nav element for navigation bar.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Create an unordered list ul within nav for navigation links.
 
-0\. create an angular workspace: ng new workspace
-\--create-application=false 1. go to the workspace folder, create the
-project shell with: ng generate application shell \--routing=true
-\--style=scss 2. create the project mf-a with: ng generate application
-mf-a \--routing=true \--style=scss 3. create the project mf-b with: ng
-generate application mf-b \--routing=true \--style=scss 4. create
-shared-lib: ng generate library common-lib 5. add the following in
-angular.json to set scss instead of css, below the \"projectType\":
-\"library\", \"schematics\": { \"@schematics/angular:component\": {
-\"style\": \"scss\" } }, 6. to eliminate the create of the browser
-folder set the following: \"outputPath\": { \"base\": \"dist/shell\",
-\"browser\": \"\" }, 7. add component to shared-lib with: ng generate
-component angular-version\--project=shared-lib 8. build shared lib,
-executed it in the workspace folder with: ng build common-lib
-\--configuration production 9. publish shared-lib after increase it
-version and change directory to dist/shared-lib with: npm publish
-\--access=public 10. run npm i \@angular-architects/native-federation -D
-11. npm install \@ng-bootstrap/ng-bootstrap 12. add
-\@angular-architects/native-federation to mf-b with: ng add
-\@angular-architects/native-federation \--project mf-b \--port 4202
--type remote 13. add \@angular-architects/native-federation to mf-a
-with: ng add \@angular-architects/native-federation \--project mf-a
-\--port 4201 -type remote 14. add \@angular-architects/native-federation
-to shell with: ng add \@angular-architects/native-federation \--project
-shell \--port 4200 -type dynamic-host 15. rename all application
-app.component.ts selector cause of all set to app-root and it will be
-collission 16. add the shell app.routes.ts 17. add the navigation part
-\<nav\> \<ul\> \<li\> routerlink etc in app.component.html in shell app
+Add list items li with `routerLink` directives for each navigation link.
+
