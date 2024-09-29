@@ -22,16 +22,16 @@ jobs:
         run: npm install
 
       - name: Build lk-common-lib
-        run: npm run build lk-common-lib --configuration production"
+        run: npm run build lk-common-lib --configuration production
 
       - name: Build mf-a
-        run: npm run build --project=mf-a --configuration production"
+        run: npm run build --project=mf-a --configuration production
 
       - name: Build mf-b
-        run: npm run build --project=mf-b --configuration production"
+        run: npm run build --project=mf-b --configuration production
 
       - name: Build shell
-        run: npm run build --project=shell --configuration production"
+        run: npm run build --project=shell --configuration production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
