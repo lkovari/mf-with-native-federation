@@ -4,13 +4,18 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-b": "ng serve mf-b -o",
+    "start-a": "ng serve mf-a -o",
+    "start-s": "ng serve shell -o",
+
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-shell": "ng build --project shell --output-path=dist/shell --base-href '/mf-with-native-federation/'",
-    "build-mf-a": "ng build --project mf-a --output-path=dist/mf-a --base-href '/mf-with-native-federation/mf-a/'",
-    "build-mf-b": "ng build --project mf-b --output-path=dist/mf-b --base-href '/mf-with-native-federation/mf-b/'",
-    "build-all": "npm run build-shell && npm run build-mf-a && npm run build-mf-b",
+    "build-lib": "ng build lk-common-lib --configuration production",
+    "build-shell": "ng build --project shell --configuration production",
+    "build-mf-a": "ng build --project mf-a --configuration production",
+    "build-mf-b": "ng build --project mf-b --configuration production",
+    "build-all": "npm run build-lib && npm run build-mf-a && npm run build-mf-b &&  npm run build-shell ",
     "deploy": "npx angular-cli-ghpages --dir=dist",
     "postinstall": ""
   },

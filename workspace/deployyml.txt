@@ -1,4 +1,4 @@
-name: Deploy Angular Microfrontends to GitHub Pages
+name: Deploy Angular Microfrontends with native federation to GitHub Pages
 
 on:
   push:
@@ -16,19 +16,22 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '22.x' # Ensure to use the correct version for your Angular project
+          node-version: '22.4.1'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build shell
-        run: npm run build -- --project=shell --outputPath=dist/shell --base-href="/mf-with-native-federation/"
+      - name: Build lk-common-lib
+        run: npm run build lk-common-lib --configuration production"
 
       - name: Build mf-a
-        run: npm run build -- --project=mf-a --outputPath=dist/mf-a --base-href="/mf-with-native-federation/mf-a/"
+        run: npm run build --project=mf-a --configuration production"
 
       - name: Build mf-b
-        run: npm run build -- --project=mf-b --outputPath=dist/mf-b --base-href="/mf-with-native-federation/mf-b/"
+        run: npm run build --project=mf-b --configuration production"
+
+      - name: Build shell
+        run: npm run build --project=shell --configuration production"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
