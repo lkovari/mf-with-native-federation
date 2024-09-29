@@ -64,10 +64,8 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": {
-							"base": "dist/shell",
-							"browser": ""
-						},
+						"outputPath": "dist/shell",
+						"baseHref": "/mf-with-native-federation/shell",
 						"index": "projects/shell/src/index.html",
 						"browser": "projects/shell/src/main.ts",
 						"polyfills": [
@@ -101,7 +99,8 @@
 									"maximumError": "4kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"baseHref": "/mf-with-native-federation/shell"
 						},
 						"development": {
 							"optimization": false,
@@ -189,10 +188,8 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": {
-							"base": "dist/mf-a",
-							"browser": ""
-						},
+						"outputPath": "dist/mf-a",
+						"baseHref": "/mf-with-native-federation/mf-a",
 						"index": "projects/mf-a/src/index.html",
 						"browser": "projects/mf-a/src/main.ts",
 						"polyfills": [
@@ -226,7 +223,8 @@
 									"maximumError": "4kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"baseHref": "/mf-with-native-federation/mf-a"
 						},
 						"development": {
 							"optimization": false,
@@ -314,10 +312,8 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": {
-							"base": "dist/mf-b",
-							"browser": ""
-						},
+						"outputPath": "dist/mf-b",
+						"baseHref": "/mf-with-native-federation/mf-b",
 						"index": "projects/mf-b/src/index.html",
 						"browser": "projects/mf-b/src/main.ts",
 						"polyfills": [
@@ -351,7 +347,8 @@
 									"maximumError": "4kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"baseHref": "/mf-with-native-federation/mf-b"
 						},
 						"development": {
 							"optimization": false,
