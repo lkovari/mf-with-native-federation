@@ -19,7 +19,7 @@ jobs:
           node-version: '22.4.1'
 
       - name: Install dependencies
-        working-directory: ../../workspace/
+        working-directory: ../
         run: npm install
 
       - name: Build lk-common-lib
