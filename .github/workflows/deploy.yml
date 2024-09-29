@@ -18,10 +18,13 @@ jobs:
         with:
           node-version: '22.4.1'
 
+      - name: show package.json
+        run find ~ -name package.json
+       
       - name: Install dependencies
         working-directory: ../
         run: npm install
-
+ 
       - name: Build lk-common-lib
         run: npm run build lk-common-lib --configuration production
 
