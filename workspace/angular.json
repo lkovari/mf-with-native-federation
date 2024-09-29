@@ -68,7 +68,6 @@
 							"base": "dist/shell",
 							"browser": ""
 						},
-						"baseHref": "/mf-with-native-federation/shell/",
 						"index": "projects/shell/src/index.html",
 						"browser": "projects/shell/src/main.ts",
 						"polyfills": [
@@ -194,7 +193,6 @@
 							"base": "dist/mf-a",
 							"browser": ""
 						},
-						"baseHref": "/mf-with-native-federation/mf-a/",
 						"index": "projects/mf-a/src/index.html",
 						"browser": "projects/mf-a/src/main.ts",
 						"polyfills": [
@@ -320,7 +318,6 @@
 							"base": "dist/mf-b",
 							"browser": ""
 						},
-						"baseHref": "/mf-with-native-federation/mf-b/",
 						"index": "projects/mf-b/src/index.html",
 						"browser": "projects/mf-b/src/main.ts",
 						"polyfills": [
