@@ -19,7 +19,7 @@ jobs:
           node-version: '22.4.1'
 
       - name: show package.json
-        run find ~ -name package.json
+        run: find ~ -name package.json
        
       - name: Install dependencies
         working-directory: ../
