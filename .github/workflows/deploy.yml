@@ -35,15 +35,15 @@ jobs:
 
       - name: Build mf-a
         working-directory: ./workspace
-        run: npm run build --project=mf-a --configuration production
+        run: npm run build -- --project=mf-a --configuration production
 
       - name: Build mf-b
         working-directory: ./workspace
-        run: npm run build --project=mf-b --configuration production
+        run: npm run build -- --project=mf-b --configuration production
 
       - name: Build shell
         working-directory: ./workspace
-        run: npm run build --project=shell --configuration production
+        run: npm run build -- --project=shell --configuration production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
