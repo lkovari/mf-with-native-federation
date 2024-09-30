@@ -19,9 +19,10 @@ jobs:
           node-version: '22.4.1'
 
       - name: locate package.json
-        run: find ~ -name package.json
+        run: ls ~ -name package.json
        
       - name: Set working directory and install dependencies
+        run: npm ci
         working-directory: ./workspace
         run: npm install
  
