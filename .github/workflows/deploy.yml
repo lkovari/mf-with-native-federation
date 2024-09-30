@@ -22,7 +22,7 @@ jobs:
         run: find ~ -name package.json
        
       - name: Install dependencies
-        working-directory: ../
+        working-directory: ../workspace
         run: npm install
  
       - name: Build lk-common-lib
