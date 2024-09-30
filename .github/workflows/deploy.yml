@@ -21,8 +21,11 @@ jobs:
       - name: locate package.json
         run: ls ~ -name package.json
        
-      - name: Set working directory and install dependencies
+      - name: Set working directory
         run: npm ci
+        working-directory: ./workspace
+
+      - name: Set working directory and install dependencies
         working-directory: ./workspace
         run: npm install
  
