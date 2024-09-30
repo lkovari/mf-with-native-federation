@@ -26,15 +26,19 @@ jobs:
         run: npm install
  
       - name: Build lk-common-lib
+        working-directory: ./workspace
         run: npm run build lk-common-lib --configuration production
 
       - name: Build mf-a
+        working-directory: ./workspace
         run: npm run build --project=mf-a --configuration production
 
       - name: Build mf-b
+        working-directory: ./workspace
         run: npm run build --project=mf-b --configuration production
 
       - name: Build shell
+        working-directory: ./workspace
         run: npm run build --project=shell --configuration production
 
       - name: Deploy to GitHub Pages
