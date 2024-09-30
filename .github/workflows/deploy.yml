@@ -56,4 +56,4 @@ jobs:
           publish_dir: ./workspace/dist
           force_orphan: true
           allow_empty_commit: false
-          enable_jekyll: false
+

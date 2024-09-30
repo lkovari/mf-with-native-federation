@@ -16,7 +16,9 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {},
+					"options": {
+						"outputPath": "dist/shell"
+					},
 					"configurations": {
 						"production": {
 							"target": "shell:esbuild:production"
@@ -140,7 +142,9 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {},
+					"options": {
+						"outputPath": "dist/shell" 
+					},
 					"configurations": {
 						"production": {
 							"target": "mf-a:esbuild:production"
@@ -264,7 +268,9 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {},
+					"options": {
+						"outputPath": "dist/shell" 
+					},
 					"configurations": {
 						"production": {
 							"target": "mf-b:esbuild:production"
