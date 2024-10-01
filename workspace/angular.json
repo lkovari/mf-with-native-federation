@@ -17,7 +17,10 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"outputPath": "dist/shell"
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  }
 					},
 					"configurations": {
 						"production": {
@@ -66,7 +69,10 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/shell",
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  },
 						"baseHref": "/mf-with-native-federation/shell",
 						"index": "projects/shell/src/index.html",
 						"browser": "projects/shell/src/main.ts",
@@ -143,7 +149,10 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"outputPath": "dist/shell" 
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  }
 					},
 					"configurations": {
 						"production": {
@@ -192,7 +201,10 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/mf-a",
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  },
 						"baseHref": "/mf-with-native-federation/mf-a",
 						"index": "projects/mf-a/src/index.html",
 						"browser": "projects/mf-a/src/main.ts",
@@ -269,7 +281,10 @@
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"outputPath": "dist/shell" 
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  }
 					},
 					"configurations": {
 						"production": {
@@ -318,7 +333,10 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/mf-b",
+						"outputPath": {
+							"base": "dist",
+							"browser": ""
+						  },
 						"baseHref": "/mf-with-native-federation/mf-b",
 						"index": "projects/mf-b/src/index.html",
 						"browser": "projects/mf-b/src/main.ts",
