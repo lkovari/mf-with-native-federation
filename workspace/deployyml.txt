@@ -18,23 +18,41 @@ jobs:
         with:
           node-version: '22.4.1'
 
-      - name: Install dependencies
-        run: npm install
+      - name: locate package.json
+        run: find . -name package.json
+       
+      - name: Set working directory
+        run: npm ci
+        working-directory: ./workspace
 
+      - name: Set working directory and install dependencies
+        working-directory: ./workspace/
+        run: npm install
+ 
       - name: Build lk-common-lib
-        run: npm run build lk-common-lib --configuration production
+        working-directory: ./workspace
+        run: npm run build -- --project=lk-common-lib --configuration production
 
       - name: Build mf-a
-        run: npm run build --project=mf-a --configuration production
+        working-directory: ./workspace
+        run: npm run build -- --project=mf-a --configuration production
 
       - name: Build mf-b
-        run: npm run build --project=mf-b --configuration production
+        working-directory: ./workspace
+        run: npm run build -- --project=mf-b --configuration production
 
       - name: Build shell
-        run: npm run build --project=shell --configuration production
+        working-directory: ./workspace
+        run: npm run build -- --project=shell --configuration production
+
+      - name: Check dist folder
+        run: ls -al ./workspace/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_branch: gh-pages
+          publish_dir: ./workspace/dist
+          force_orphan: true
+          allow_empty_commit: false
