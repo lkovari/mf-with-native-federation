@@ -53,7 +53,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./workspace/dist
+          publish_dir: ./dist
           force_orphan: true
           allow_empty_commit: false
 
