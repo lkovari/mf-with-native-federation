@@ -17,8 +17,8 @@
     "build-mf-b": "ng build --project mf-b --configuration production",
     "build-all": "npm run build-lib && npm run build-mf-a && npm run build-mf-b && npm run build-shell",
     "deploy": "npx angular-cli-ghpages --dir=dist",
-    "deploy-gh": "gh-pages -d dist",
-    "postbuild": "echo > dist/mf-with-native-federation/.nojekyll"
+    "deploy-gh": "gh-pages -d dist ",
+    "postbuild": ""
   },
   "private": true,
   "dependencies": {
