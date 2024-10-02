@@ -29,6 +29,9 @@ jobs:
         working-directory: ./workspace/
         run: npm install
  
+      - name: Create .nojekyll
+        run: echo "" > ./dist/<app-name>/.nojekyll
+
       - name: Build lk-common-lib
         working-directory: ./workspace
         run: npm run build -- --project=lk-common-lib --configuration production
