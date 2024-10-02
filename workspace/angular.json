@@ -3,442 +3,407 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"shell": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "projects/shell",
-			"sourceRoot": "projects/shell/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"outputPath": {
-							"base": "dist/shell",
-							"browser": ""
-						  }
-					},
-					"configurations": {
-						"production": {
-							"target": "shell:esbuild:production"
-						},
-						"development": {
-							"target": "shell:esbuild:development",
-							"dev": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"target": "shell:serve-original:development",
-						"rebuildDelay": 0,
-						"dev": true,
-						"port": 0
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						],
-						"tsConfig": "projects/shell/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/shell/public"
-							}
-						],
-						"styles": [
-							"projects/shell/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"esbuild": {
-					"builder": "@angular-devkit/build-angular:application",
-					"options": {
-						"outputPath": {
-							"base": "dist/shell",
-							"browser": ""
-						  },
-						"baseHref": "/mf-with-native-federation/shell",
-						"index": "projects/shell/src/index.html",
-						"browser": "projects/shell/src/main.ts",
-						"polyfills": [
-							"zone.js",
-							"es-module-shims"
-						],
-						"tsConfig": "projects/shell/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/shell/public"
-							}
-						],
-						"styles": [
-							"projects/shell/src/styles.scss"
-						],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kB",
-									"maximumError": "4kB"
-								}
-							],
-							"outputHashing": "all",
-							"baseHref": "/mf-with-native-federation/shell"
-						},
-						"development": {
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve-original": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"configurations": {
-						"production": {
-							"buildTarget": "shell:esbuild:production"
-						},
-						"development": {
-							"buildTarget": "shell:esbuild:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4200
-					}
-				}
-			}
+	  "shell": {
+		"projectType": "application",
+		"schematics": {
+		  "@schematics/angular:component": {
+			"style": "scss"
+		  }
 		},
-		"mf-a": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
+		"root": "projects/shell",
+		"sourceRoot": "projects/shell/src",
+		"prefix": "app",
+		"architect": {
+		  "build": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "outputPath": {
+				"base": "dist/shell",
+				"browser": ""
+			  }
 			},
-			"root": "projects/mf-a",
-			"sourceRoot": "projects/mf-a/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"outputPath": {
-							"base": "dist/mf-a",
-							"browser": ""
-						  }
-					},
-					"configurations": {
-						"production": {
-							"target": "mf-a:esbuild:production"
-						},
-						"development": {
-							"target": "mf-a:esbuild:development",
-							"dev": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"target": "mf-a:serve-original:development",
-						"rebuildDelay": 0,
-						"dev": true,
-						"port": 0
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						],
-						"tsConfig": "projects/mf-a/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/mf-a/public"
-							}
-						],
-						"styles": [
-							"projects/mf-a/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"esbuild": {
-					"builder": "@angular-devkit/build-angular:application",
-					"options": {
-						"outputPath": {
-							"base": "dist/mf-b",
-							"browser": ""
-						  },
-						"baseHref": "/mf-with-native-federation/mf-a",
-						"index": "projects/mf-a/src/index.html",
-						"browser": "projects/mf-a/src/main.ts",
-						"polyfills": [
-							"zone.js",
-							"es-module-shims"
-						],
-						"tsConfig": "projects/mf-a/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/mf-a/public"
-							}
-						],
-						"styles": [
-							"projects/mf-a/src/styles.scss"
-						],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kB",
-									"maximumError": "4kB"
-								}
-							],
-							"outputHashing": "all",
-							"baseHref": "/mf-with-native-federation/mf-a"
-						},
-						"development": {
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve-original": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"configurations": {
-						"production": {
-							"buildTarget": "mf-a:esbuild:production"
-						},
-						"development": {
-							"buildTarget": "mf-a:esbuild:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4201
-					}
-				}
-			}
-		},
-		"mf-b": {
-			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
+			"configurations": {
+			  "production": {
+				"target": "shell:esbuild:production"
+			  },
+			  "development": {
+				"target": "shell:esbuild:development",
+				"dev": true
+			  }
 			},
-			"root": "projects/mf-b",
-			"sourceRoot": "projects/mf-b/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"outputPath": {
-							"base": "dist/mf-b",
-							"browser": ""
-						  }
-					},
-					"configurations": {
-						"production": {
-							"target": "mf-b:esbuild:production"
-						},
-						"development": {
-							"target": "mf-b:esbuild:development",
-							"dev": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"target": "mf-b:serve-original:development",
-						"rebuildDelay": 0,
-						"dev": true,
-						"port": 0
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						],
-						"tsConfig": "projects/mf-b/tsconfig.spec.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/mf-b/public"
-							}
-						],
-						"styles": [
-							"projects/mf-b/src/styles.scss"
-						],
-						"scripts": []
-					}
-				},
-				"esbuild": {
-					"builder": "@angular-devkit/build-angular:application",
-					"options": {
-						"outputPath": {
-							"base": "dist/mf-b",
-							"browser": ""
-						  },
-						"baseHref": "/mf-with-native-federation/mf-b",
-						"index": "projects/mf-b/src/index.html",
-						"browser": "projects/mf-b/src/main.ts",
-						"polyfills": [
-							"zone.js",
-							"es-module-shims"
-						],
-						"tsConfig": "projects/mf-b/tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/mf-b/public"
-							}
-						],
-						"styles": [
-							"projects/mf-b/src/styles.scss"
-						],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "2kB",
-									"maximumError": "4kB"
-								}
-							],
-							"outputHashing": "all",
-							"baseHref": "/mf-with-native-federation/mf-b"
-						},
-						"development": {
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve-original": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"configurations": {
-						"production": {
-							"buildTarget": "mf-b:esbuild:production"
-						},
-						"development": {
-							"buildTarget": "mf-b:esbuild:development"
-						}
-					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4202
-					}
-				}
+			"defaultConfiguration": "production"
+		  },
+		  "serve": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "target": "shell:serve-original:development",
+			  "rebuildDelay": 0,
+			  "dev": true,
+			  "port": 0
 			}
-		},
-		"lk-common-lib": {
-			"projectType": "library",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
+		  },
+		  "extract-i18n": {
+			"builder": "@angular-devkit/build-angular:extract-i18n"
+		  },
+		  "test": {
+			"builder": "@angular-devkit/build-angular:karma",
+			"options": {
+			  "polyfills": ["zone.js", "zone.js/testing"],
+			  "tsConfig": "projects/shell/tsconfig.spec.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/shell/public"
 				}
+			  ],
+			  "styles": ["projects/shell/src/styles.scss"],
+			  "scripts": []
+			}
+		  },
+		  "esbuild": {
+			"builder": "@angular-devkit/build-angular:application",
+			"options": {
+			  "outputPath": {
+				"base": "dist/shell",
+				"browser": ""
+			  },
+  
+			  "index": "projects/shell/src/index.html",
+			  "browser": "projects/shell/src/main.ts",
+			  "polyfills": ["zone.js", "es-module-shims"],
+			  "tsConfig": "projects/shell/tsconfig.app.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/shell/public"
+				}
+			  ],
+			  "styles": ["projects/shell/src/styles.scss"],
+			  "scripts": []
 			},
-			"root": "projects/lk-common-lib",
-			"sourceRoot": "projects/lk-common-lib/src",
-			"prefix": "lib",
-			"architect": {
-				"build": {
-					"builder": "@angular-devkit/build-angular:ng-packagr",
-					"options": {
-						"project": "projects/lk-common-lib/ng-package.json"
-					},
-					"configurations": {
-						"production": {
-							"tsConfig": "projects/lk-common-lib/tsconfig.lib.prod.json"
-						},
-						"development": {
-							"tsConfig": "projects/lk-common-lib/tsconfig.lib.json"
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"test": {
-					"builder": "@angular-devkit/build-angular:karma",
-					"options": {
-						"tsConfig": "projects/lk-common-lib/tsconfig.spec.json",
-						"polyfills": [
-							"zone.js",
-							"zone.js/testing"
-						]
-					}
-				}
+			"configurations": {
+			  "production": {
+				"budgets": [
+				  {
+					"type": "initial",
+					"maximumWarning": "500kB",
+					"maximumError": "1MB"
+				  },
+				  {
+					"type": "anyComponentStyle",
+					"maximumWarning": "2kB",
+					"maximumError": "4kB"
+				  }
+				],
+				"outputHashing": "all",
+				"baseHref": "/mf-with-native-federation/shell"
+			  },
+			  "development": {
+				"optimization": false,
+				"extractLicenses": false,
+				"sourceMap": true
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "serve-original": {
+			"builder": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+			  "production": {
+				"buildTarget": "shell:esbuild:production"
+			  },
+			  "development": {
+				"buildTarget": "shell:esbuild:development"
+			  }
+			},
+			"defaultConfiguration": "development",
+			"options": {
+			  "port": 4200
 			}
+		  }
 		}
-  },
-  "cli": {
-    "analytics": false
+	  },
+	  "mf-a": {
+		"projectType": "application",
+		"schematics": {
+		  "@schematics/angular:component": {
+			"style": "scss"
+		  }
+		},
+		"root": "projects/mf-a",
+		"sourceRoot": "projects/mf-a/src",
+		"prefix": "app",
+		"architect": {
+		  "build": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "outputPath": {
+				"base": "dist/mf-a",
+				"browser": ""
+			  }
+			},
+			"configurations": {
+			  "production": {
+				"target": "mf-a:esbuild:production"
+			  },
+			  "development": {
+				"target": "mf-a:esbuild:development",
+				"dev": true
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "serve": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "target": "mf-a:serve-original:development",
+			  "rebuildDelay": 0,
+			  "dev": true,
+			  "port": 0
+			}
+		  },
+		  "extract-i18n": {
+			"builder": "@angular-devkit/build-angular:extract-i18n"
+		  },
+		  "test": {
+			"builder": "@angular-devkit/build-angular:karma",
+			"options": {
+			  "polyfills": ["zone.js", "zone.js/testing"],
+			  "tsConfig": "projects/mf-a/tsconfig.spec.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/mf-a/public"
+				}
+			  ],
+			  "styles": ["projects/mf-a/src/styles.scss"],
+			  "scripts": []
+			}
+		  },
+		  "esbuild": {
+			"builder": "@angular-devkit/build-angular:application",
+			"options": {
+			  "outputPath": {
+				"base": "dist/mf-b",
+				"browser": ""
+			  },
+			  "index": "projects/mf-a/src/index.html",
+			  "browser": "projects/mf-a/src/main.ts",
+			  "polyfills": ["zone.js", "es-module-shims"],
+			  "tsConfig": "projects/mf-a/tsconfig.app.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/mf-a/public"
+				}
+			  ],
+			  "styles": ["projects/mf-a/src/styles.scss"],
+			  "scripts": []
+			},
+			"configurations": {
+			  "production": {
+				"budgets": [
+				  {
+					"type": "initial",
+					"maximumWarning": "500kB",
+					"maximumError": "1MB"
+				  },
+				  {
+					"type": "anyComponentStyle",
+					"maximumWarning": "2kB",
+					"maximumError": "4kB"
+				  }
+				],
+				"outputHashing": "all",
+				"baseHref": "/mf-with-native-federation/mf-a"
+			  },
+			  "development": {
+				"optimization": false,
+				"extractLicenses": false,
+				"sourceMap": true
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "serve-original": {
+			"builder": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+			  "production": {
+				"buildTarget": "mf-a:esbuild:production"
+			  },
+			  "development": {
+				"buildTarget": "mf-a:esbuild:development"
+			  }
+			},
+			"defaultConfiguration": "development",
+			"options": {
+			  "port": 4201
+			}
+		  }
+		}
+	  },
+	  "mf-b": {
+		"projectType": "application",
+		"schematics": {
+		  "@schematics/angular:component": {
+			"style": "scss"
+		  }
+		},
+		"root": "projects/mf-b",
+		"sourceRoot": "projects/mf-b/src",
+		"prefix": "app",
+		"architect": {
+		  "build": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "outputPath": {
+				"base": "dist/mf-b",
+				"browser": ""
+			  }
+			},
+			"configurations": {
+			  "production": {
+				"target": "mf-b:esbuild:production"
+			  },
+			  "development": {
+				"target": "mf-b:esbuild:development",
+				"dev": true
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "serve": {
+			"builder": "@angular-architects/native-federation:build",
+			"options": {
+			  "target": "mf-b:serve-original:development",
+			  "rebuildDelay": 0,
+			  "dev": true,
+			  "port": 0
+			}
+		  },
+		  "extract-i18n": {
+			"builder": "@angular-devkit/build-angular:extract-i18n"
+		  },
+		  "test": {
+			"builder": "@angular-devkit/build-angular:karma",
+			"options": {
+			  "polyfills": ["zone.js", "zone.js/testing"],
+			  "tsConfig": "projects/mf-b/tsconfig.spec.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/mf-b/public"
+				}
+			  ],
+			  "styles": ["projects/mf-b/src/styles.scss"],
+			  "scripts": []
+			}
+		  },
+		  "esbuild": {
+			"builder": "@angular-devkit/build-angular:application",
+			"options": {
+			  "outputPath": {
+				"base": "dist/mf-b",
+				"browser": ""
+			  },
+			  "index": "projects/mf-b/src/index.html",
+			  "browser": "projects/mf-b/src/main.ts",
+			  "polyfills": ["zone.js", "es-module-shims"],
+			  "tsConfig": "projects/mf-b/tsconfig.app.json",
+			  "inlineStyleLanguage": "scss",
+			  "assets": [
+				{
+				  "glob": "**/*",
+				  "input": "projects/mf-b/public"
+				}
+			  ],
+			  "styles": ["projects/mf-b/src/styles.scss"],
+			  "scripts": []
+			},
+			"configurations": {
+			  "production": {
+				"budgets": [
+				  {
+					"type": "initial",
+					"maximumWarning": "500kB",
+					"maximumError": "1MB"
+				  },
+				  {
+					"type": "anyComponentStyle",
+					"maximumWarning": "2kB",
+					"maximumError": "4kB"
+				  }
+				],
+				"outputHashing": "all",
+				"baseHref": "/mf-with-native-federation/mf-b"
+			  },
+			  "development": {
+				"optimization": false,
+				"extractLicenses": false,
+				"sourceMap": true
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "serve-original": {
+			"builder": "@angular-devkit/build-angular:dev-server",
+			"configurations": {
+			  "production": {
+				"buildTarget": "mf-b:esbuild:production"
+			  },
+			  "development": {
+				"buildTarget": "mf-b:esbuild:development"
+			  }
+			},
+			"defaultConfiguration": "development",
+			"options": {
+			  "port": 4202
+			}
+		  }
+		}
+	  },
+	  "lk-common-lib": {
+		"projectType": "library",
+		"schematics": {
+		  "@schematics/angular:component": {
+			"style": "scss"
+		  }
+		},
+		"root": "projects/lk-common-lib",
+		"sourceRoot": "projects/lk-common-lib/src",
+		"prefix": "lib",
+		"architect": {
+		  "build": {
+			"builder": "@angular-devkit/build-angular:ng-packagr",
+			"options": {
+			  "project": "projects/lk-common-lib/ng-package.json"
+			},
+			"configurations": {
+			  "production": {
+				"tsConfig": "projects/lk-common-lib/tsconfig.lib.prod.json"
+			  },
+			  "development": {
+				"tsConfig": "projects/lk-common-lib/tsconfig.lib.json"
+			  }
+			},
+			"defaultConfiguration": "production"
+		  },
+		  "test": {
+			"builder": "@angular-devkit/build-angular:karma",
+			"options": {
+			  "tsConfig": "projects/lk-common-lib/tsconfig.spec.json",
+			  "polyfills": ["zone.js", "zone.js/testing"]
+			}
+		  }
+		}
+	  }
+	},
+	"cli": {
+	  "analytics": false
+	}
   }
-}
