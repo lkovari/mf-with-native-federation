@@ -48,12 +48,34 @@ jobs:
       - name: Check dist folder
         run: ls -al ./workspace/dist
 
-      - name: Deploy to GitHub Pages
+      # Step 6: Deploy shell app to the root of GitHub Pages
+      - name: Deploy shell to GitHub Pages root
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./workspace/dist
+          publish_dir: ./workspace/dist/shell  # Deploy shell to the root of GitHub Pages
           force_orphan: true
           allow_empty_commit: false
 
+      # Step 7: Deploy mf-a to its subdirectory
+      - name: Deploy mf-a to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./workspace/dist/mf-a  # Deploy mf-a to /mf-a
+          destination_dir: mf-a
+          force_orphan: true
+          allow_empty_commit: false
+
+      # Step 8: Deploy mf-b to its subdirectory
+      - name: Deploy mf-b to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./workspace/dist/mf-b  # Deploy mf-b to /mf-b
+          destination_dir: mf-b
+          force_orphan: true
+          allow_empty_commit: false

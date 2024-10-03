@@ -24,7 +24,8 @@
 			},
 			"configurations": {
 			  "production": {
-				"target": "shell:esbuild:production"
+				"target": "shell:esbuild:production",
+				"baseHref": "/mf-with-native-federation/"
 			  },
 			  "development": {
 				"target": "shell:esbuild:development",
