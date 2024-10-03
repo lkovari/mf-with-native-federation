@@ -48,13 +48,24 @@ jobs:
       - name: Check dist folder
         run: ls -al ./workspace/dist
 
+      - name: Deploy lk-common-lib to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./workspace/dist/lk-common-lib 
+          destination_dir: lk-common-lib
+          force_orphan: true
+          allow_empty_commit: false
+
       # Step 6: Deploy shell app to the root of GitHub Pages
       - name: Deploy shell to GitHub Pages root
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./workspace/dist/shell  # Deploy shell to the root of GitHub Pages
+          publish_dir: ./workspace/dist/shell
+          destination_dir: .
           force_orphan: true
           allow_empty_commit: false
 
