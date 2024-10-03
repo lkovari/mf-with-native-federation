@@ -53,7 +53,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./dist/mf-with-native-federation
+          publish_dir: ./workspace/dist
           force_orphan: true
           allow_empty_commit: false
 
