@@ -56,9 +56,10 @@ jobs:
           publish_dir: ./workspace/dist
           force_orphan: true
           allow_empty_commit: false
-          
+
       - name: Copy index.html to dist
-          run: cp ./workspace/index.html ./workspace/dist/index.html
+        working-directory: ./workspace
+        run: cp index.html ./workspace/dist/index.html
 
 
 
