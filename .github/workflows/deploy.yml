@@ -57,3 +57,14 @@ jobs:
           force_orphan: true
           allow_empty_commit: false
 
+- name: Deploy shell to GitHub Pages
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_branch: gh-pages
+    publish_dir: ./workspace/dist/shell
+    destination_dir: shell
+    force_orphan: true
+    allow_empty_commit: false
+
+
