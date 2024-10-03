@@ -15,7 +15,8 @@
     "build-shell": "ng build --project shell --configuration production",
     "build-mf-a": "ng build --project mf-a --configuration production",
     "build-mf-b": "ng build --project mf-b --configuration production",
-    "build-all": "npm run build-lib && npm run build-mf-a && npm run build-mf-b && npm run build-shell",
+    "copy-index": "cp ./index.html ./dist/index.html",
+    "build-all": "npm run build-lib && npm run build-mf-a && npm run build-mf-b && npm run build-shell && npm run copy-index",
     "deploy": "npx angular-cli-ghpages --dir=dist",
     "deploy-gh": "gh-pages -d dist ",
     "postbuild": ""
