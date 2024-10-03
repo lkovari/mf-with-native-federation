@@ -98,7 +98,7 @@
 				  }
 				],
 				"outputHashing": "all",
-				"baseHref": "/mf-with-native-federation/shell"
+				"baseHref": "/mf-with-native-federation/"
 			  },
 			  "development": {
 				"optimization": false,
