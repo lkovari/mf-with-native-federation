@@ -187,7 +187,7 @@
 			"builder": "@angular-devkit/build-angular:application",
 			"options": {
 			  "outputPath": {
-				"base": "dist/mf-b",
+				"base": "dist/mf-a",
 				"browser": ""
 			  },
 			  "index": "projects/mf-a/src/index.html",
