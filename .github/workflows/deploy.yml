@@ -58,7 +58,8 @@ jobs:
           allow_empty_commit: false
 
       - name: Copy index.html to gh-pages root
-        run: cp ./index.html ./dist/index.html
+        working-directory: ./workspace
+        run: cp ./index.html ./workspace/dist
 
 
 
