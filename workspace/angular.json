@@ -71,7 +71,7 @@
   
 			  "index": "projects/shell/src/index.html",
 			  "browser": "projects/shell/src/main.ts",
-			  "polyfills": ["zone.js", "es-module-shims"],
+			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
 			  "tsConfig": "projects/shell/tsconfig.app.json",
 			  "inlineStyleLanguage": "scss",
 			  "assets": [
@@ -97,8 +97,16 @@
 					"maximumError": "4kB"
 				  }
 				],
-				"outputHashing": "all",
-				"baseHref": "/mf-with-native-federation/"
+				"outputHashing": "none",
+				"baseHref": "/mf-with-native-federation/",
+				"namedChunks": false,
+				"optimization": {
+					"scripts": true,
+					"styles": true,
+					"fonts": true
+				},
+				"extractLicenses": true,
+				"sourceMap": false	
 			  },
 			  "development": {
 				"optimization": false,
@@ -192,7 +200,7 @@
 			  },
 			  "index": "projects/mf-a/src/index.html",
 			  "browser": "projects/mf-a/src/main.ts",
-			  "polyfills": ["zone.js", "es-module-shims"],
+			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
 			  "tsConfig": "projects/mf-a/tsconfig.app.json",
 			  "inlineStyleLanguage": "scss",
 			  "assets": [
@@ -218,8 +226,9 @@
 					"maximumError": "4kB"
 				  }
 				],
-				"outputHashing": "all",
-				"baseHref": "/mf-with-native-federation/mf-a"
+				"outputHashing": "none",
+				"baseHref": "/mf-with-native-federation/mf-a",
+				"deployUrl": "/mf-with-native-federation/mf-a/"
 			  },
 			  "development": {
 				"optimization": false,
@@ -313,7 +322,7 @@
 			  },
 			  "index": "projects/mf-b/src/index.html",
 			  "browser": "projects/mf-b/src/main.ts",
-			  "polyfills": ["zone.js", "es-module-shims"],
+			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
 			  "tsConfig": "projects/mf-b/tsconfig.app.json",
 			  "inlineStyleLanguage": "scss",
 			  "assets": [
@@ -339,8 +348,9 @@
 					"maximumError": "4kB"
 				  }
 				],
-				"outputHashing": "all",
-				"baseHref": "/mf-with-native-federation/mf-b"
+				"outputHashing": "none",
+				"baseHref": "/mf-with-native-federation/mf-b",
+				"deployUrl": "/mf-with-native-federation/mf-b/"
 			  },
 			  "development": {
 				"optimization": false,

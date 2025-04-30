@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularVersionComponent } from '../../../lk-common-lib/src/lib/angular-version/angular-version.component';
 
 @Component({
   selector: 'app-mf-b',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, NgbModule, AngularVersionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

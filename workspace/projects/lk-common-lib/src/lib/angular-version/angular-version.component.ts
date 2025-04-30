@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import * as angular from '@angular/forms';
 
 @Component({
   selector: 'lib-angular-version',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './angular-version.component.html',
   styleUrl: './angular-version.component.scss'
 })

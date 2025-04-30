@@ -1,4 +1,5 @@
+
 {
-	"mf-a": "http://localhost:4201/remoteEntry.json",
-	"mf-b": "http://localhost:4202/remoteEntry.json"
+  "mf-a": "https://lkovari.github.io/mf-with-native-federation/mf-a/remoteEntry.json",
+  "mf-b": "https://lkovari.github.io/mf-with-native-federation/mf-b/remoteEntry.json"
 }

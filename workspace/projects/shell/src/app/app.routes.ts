@@ -10,19 +10,27 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'mf-a',
+        loadComponent: () =>
+            loadRemoteModule({
+                remoteName: 'mf-a',
+                exposedModule: './Component',
+            }).then((m) => m.AppComponent),
+    },
+    {
+        path: 'mf-b',
+        loadComponent: () =>
+            loadRemoteModule({
+                remoteName: 'mf-b',
+                exposedModule: './Component',
+            }).then((m) => m.AppComponent),
+    },
+    {
         path: 'home',
         component: HomeComponent
     },
     {
-        path: 'mf-a',
-        loadComponent: () => loadRemoteModule('mf-a', './Component').then((m) => m.AppComponent)
-    },    
-    {
-        path: 'mf-b',
-        loadComponent: () => loadRemoteModule('mf-b', './Component').then((m) => m.AppComponent)
-    },
-    {
         path: '**',
         component: NotFoundComponent,
-      },
+    },
 ];
