@@ -17,10 +17,7 @@
 		  "build": {
 			"builder": "@angular-architects/native-federation:build",
 			"options": {
-			  "outputPath": {
-				"base": "dist/shell",
-				"browser": ""
-			  }
+				"outputPath": "dist/shell"
 			},
 			"configurations": {
 			  "production": {
@@ -64,11 +61,7 @@
 		  "esbuild": {
 			"builder": "@angular-devkit/build-angular:application",
 			"options": {
-			  "outputPath": {
-				"base": "dist/shell",
-				"browser": ""
-			  },
-  
+			  "outputPath": "dist/shell",
 			  "index": "projects/shell/src/index.html",
 			  "browser": "projects/shell/src/main.ts",
 			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
@@ -147,10 +140,7 @@
 		  "build": {
 			"builder": "@angular-architects/native-federation:build",
 			"options": {
-			  "outputPath": {
-				"base": "dist/mf-a",
-				"browser": ""
-			  }
+				"outputPath": "dist/mf-a"
 			},
 			"configurations": {
 			  "production": {
@@ -194,10 +184,7 @@
 		  "esbuild": {
 			"builder": "@angular-devkit/build-angular:application",
 			"options": {
-			  "outputPath": {
-				"base": "dist/mf-a",
-				"browser": ""
-			  },
+			  "outputPath": "dist/mf-a",
 			  "index": "projects/mf-a/src/index.html",
 			  "browser": "projects/mf-a/src/main.ts",
 			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
@@ -269,10 +256,7 @@
 		  "build": {
 			"builder": "@angular-architects/native-federation:build",
 			"options": {
-			  "outputPath": {
-				"base": "dist/mf-b",
-				"browser": ""
-			  }
+				"outputPath": "dist/mf-b"
 			},
 			"configurations": {
 			  "production": {
@@ -316,10 +300,7 @@
 		  "esbuild": {
 			"builder": "@angular-devkit/build-angular:application",
 			"options": {
-			  "outputPath": {
-				"base": "dist/mf-b",
-				"browser": ""
-			  },
+			  "outputPath": "dist/mf-b",
 			  "index": "projects/mf-b/src/index.html",
 			  "browser": "projects/mf-b/src/main.ts",
 			  "polyfills": ["@angular/localize/init", "zone.js", "es-module-shims"],
