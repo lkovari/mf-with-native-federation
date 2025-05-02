@@ -27,7 +27,7 @@ export const routes: Routes = [
             }).then((m) => m.AppComponent),
     },
     {
-        path: 'home',
+        path: 'info',
         component: HomeComponent
     },
     {
