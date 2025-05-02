@@ -2,11 +2,12 @@ import { Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { HomeComponent } from './shared/components/home/home.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { ShellDefaultComponent } from './shared/components/default/shell-default.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'home',
+        component: ShellDefaultComponent,
         pathMatch: 'full'
     },
     {
@@ -28,6 +29,10 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'default',
+        component: ShellDefaultComponent
     },
     {
         path: '**',
