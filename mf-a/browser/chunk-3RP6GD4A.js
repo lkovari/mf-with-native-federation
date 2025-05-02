@@ -1,1 +1,0 @@
-import{b as t}from"./chunk-QEB6MTLB.js";import{a as e}from"./chunk-X2IYAD47.js";function m(o,n){return t(function(i,r){var a=0;i.subscribe(e(r,function(c){r.next(o.call(n,c,a++))}))})}export{m as a};
