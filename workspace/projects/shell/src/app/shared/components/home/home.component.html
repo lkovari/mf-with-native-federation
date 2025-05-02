@@ -1,6 +1,9 @@
 <h2 class="text-primary" style="text-align: center;">Micro Frontend Shell app Home component works!</h2>
 <div>
-    <p style="text-align: center" class="text-info">Creation steps</p>
+    <p style="text-align: center" class="text-info">
+      Creation steps, based on <a href="https://www.angulararchitects.io" target="_blank"
+        rel="noopener">https://www.angulararchitects.io</a>
+    </p>
     <ol>
         <li>Create an Angular Workspace: <code>ng new micro-fe-workspace --create-application=false</code></li>
         <li>Go to the workspace folder, create the Shell Project: <code>ng generate application shell --routing=true --style=scss</code></li>
@@ -43,10 +46,8 @@
     <p style="text-align: center" class="text-info">TODO List:</p>
     <ul>
         <li>Alignment of nav bar, footer vertically middle, it is a UI. cosmetics only</li>
-        <li>Implement a mechanism for example, shared service, custom events for angular standalone, RXJS broadcast event via Subject, to communicate between micro frontends</li>
-        <li>Add PrimeNG to the solution</li>
+        <li>Use Tailwind with PrimeNG</li>
         <li>Implement the Micro Frontend A and Micro Frontend B (remote) apps menu hierarchy</li>
-        <li>Explore a way to run the separated micro frontends in Docker container</li>
-        <li>Build and deploy separatelly the apps and lib</li>
+        <li>Containerize the different apps </li>
     </ul>
 </div>
