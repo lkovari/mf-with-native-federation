@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shell-default',
@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './shell-default.component.html',
   styleUrl: './shell-default.component.scss'
 })
-export class ShellDefaultComponent {
+export class ShellDefaultComponent implements OnInit {
+  githubLogoPath!: string;
 
+  ngOnInit(): void {
+    this.githubLogoPath = 'assets/logos/GitHub-Mark-32px.png';
+  }
 }
