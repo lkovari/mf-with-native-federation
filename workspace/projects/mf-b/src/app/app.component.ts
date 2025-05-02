@@ -4,11 +4,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularVersionComponent } from '../../../lk-common-lib/src/lib/angular-version/angular-version.component';
 
 @Component({
-    selector: 'app-mf-b',
-    imports: [CommonModule, NgbModule, AngularVersionComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-mf-b',
+  imports: [CommonModule, NgbModule, AngularVersionComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'mf-b';
+  title = 'Micro-Frontend B (mf-b)';
 }
