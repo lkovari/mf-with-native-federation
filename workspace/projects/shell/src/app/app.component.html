@@ -1,23 +1,23 @@
 <div class="container">
-  <header class="title-bar">
+  <header class="title-bar bar-border">
     <h2 class="text-success" style="text-align: center">
       The {{ title }} app is running. 🎉
     </h2>
   </header>
-  <nav class="nav-bar">
+  <nav class="nav-bar bar-border">
     <ul>
       <div class="d-flex justify-content-around">
         <li class="tooltip-container">
           <a routerLink="/info" routerLinkActive="active">Info</a>
-          <span class="tooltip-text">Display the Shell app Info page</span>
+          <span class="tooltip-text">Show Shell app Info page</span>
         </li>
         <li class="tooltip-container">
           <a routerLink="/mf-a" routerLinkActive="active">M.Frontend A</a>
-          <span class="tooltip-text">Display the MF A app remote</span>
+          <span class="tooltip-text">Show MF A remote app</span>
         </li>
         <li class="tooltip-container">
           <a routerLink="/mf-b" routerLinkActive="active">M.Frontend B</a>
-          <span class="tooltip-text">Display the MF B app remote</span>
+          <span class="tooltip-text">Show MF B remote app</span>
         </li>
       </div>
     </ul>
@@ -25,7 +25,7 @@
   <main class="body-part">
     <router-outlet></router-outlet>
   </main>
-  <footer class="footer" style="text-align: center">
+  <footer class="footer bar-border" style="text-align: center">
     <lib-angular-version></lib-angular-version>
   </footer>
 </div>
