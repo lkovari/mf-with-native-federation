@@ -52,14 +52,14 @@
   }
 
   .tooltip-text {
-    visibility: hidden;
+  visibility: hidden;
     opacity: 0;
     position: absolute;
     top: 100%;
-    margin-top: 6px;
+    margin-top: 2px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: light-blue;
+    background-color: lightblue;
     color: magenta;
     padding: 5px 10px;
     border-radius: 4px;
