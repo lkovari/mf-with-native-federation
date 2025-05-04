@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterOutlet, RouterLink, NgbModule, AngularVersionComponent]
 })
 export class AppComponent {
-  title = 'Micro Frontend Shell (host)';
+  title = 'Micro-Frontend Shell (host)';
 
 }
 

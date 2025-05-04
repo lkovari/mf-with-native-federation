@@ -1,0 +1,41 @@
+.home-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.home-content {
+    padding: 1rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.home-description {
+    text-align: center;
+    color: #0dcaf0; // Bootstrap’s .text-info
+    margin-top: 2rem;
+    font-size: 1.125rem;
+}
+
+code {
+    background-color: #f8f9fa;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .home-content {
+        padding: 1rem;
+    }
+
+    .home-title {
+        font-size: 1.5rem;
+    }
+
+    .home-description {
+        font-size: 1rem;
+    }
+}

@@ -1,54 +1,72 @@
-<h2 class="text-primary" style="text-align: center;">Micro Frontend Shell app Home component works!</h2>
-<div>
-    <p style="text-align: center" class="text-info">
-      Creation steps, based on <a href="https://www.angulararchitects.io" target="_blank"
-        rel="noopener">https://www.angulararchitects.io</a>
-    </p>
-    <ol>
-        <li>Create an Angular Workspace: <code>ng new micro-fe-workspace --create-application=false</code></li>
-        <li>Go to the workspace folder, create the Shell Project: <code>ng generate application shell --routing=true --style=scss</code></li>
-        <li>Create Microfrontend Projects:
-          <ul>
-            <li><code>ng generate application mf-a --routing=true --style=scss</code> (Create mf-a)</li>
-            <li><code>ng generate application mf-b --routing=true --style=scss</code> (Create mif-b)</li>
-          </ul>
+<h2 class="text-primary home-title">Micro-Frontend Shell app Home component works!</h2>
+
+<div class="home-content">
+  <p class="home-description">
+    Creation steps, based on
+    <a href="https://www.angulararchitects.io" target="_blank" rel="noopener">
+      https://www.angulararchitects.io
+    </a>
+  </p>
+
+  <ol>
+    <li>Create an Angular Workspace:
+      <code>ng new micro-fe-workspace --create-application=false</code>
+    </li>
+    <li>Go to the workspace folder, create the Shell Project:
+      <code>ng generate application shell --routing=true --style=scss</code>
+    </li>
+    <li>Create Microfrontend Projects:
+      <ul>
+        <li><code>ng generate application mf-a --routing=true --style=scss</code> (Create mf-a)</li>
+        <li><code>ng generate application mf-b --routing=true --style=scss</code> (Create mf-b)</li>
+      </ul>
+    </li>
+    <li>Create Shared Library: <code>ng generate library lk-common-lib</code></li>
+    <li>Add "style": "scss" to angular.json at lk-common-lib</li>
+    <li>Add a component (AngularVersionComponent) to Shared Library:
+      <code>ng generate component angular-version --project=shared-lib</code>
+    </li>
+    <li>Build and Publish Shared Library:
+      <ul>
+        <li>(Navigate to the workspace root)</li>
+        <li><code>ng build lk-common-lib --configuration production</code></li>
+        <li>(Navigate to the `dist/lk-common-lib` directory)</li>
+        <li><code>npm publish --access=public</code> (After version bump)</li>
+      </ul>
+    </li>
+    <li>Install Bootstrap for Styling: <code>npm install &#64;ng-bootstrap/ng-bootstrap</code></li>
+    <li>Install Native Federation Dependency: <code>npm i &#64;angular-architects/native-federation -D</code></li>
+    <li>Configure Microfrontends for Federation:
+      <ul>
+        <li>mf-b:
+          <code>ng add &#64;angular-architects/native-federation:init --project mf-b --port 4202 -type remote</code>
         </li>
-        <li>Create Shared Library: <code>ng generate library lk-common-lib</code></li>
-        <li>Add "style": "scss" to angular.json at lk-common-lib</li>
-        <li>Add a component (AngularVersionComponent) to Shared Library: <code>ng generate component angular-version --project=shared-lib</code></li>
-        <li>Build and Publish Shared Library:
-          <ul>
-            <li>(Navigate to the workspace root)</li>
-            <li><code>ng build lk-common-lib --configuration production</code></li>
-            <li>(Navigate to the `dist/lk-common-lib` directory)</li>
-            <li><code>npm publish --access=public</code> (After version bump)</li>
-          </ul>
+        <li>mf-a:
+          <code>ng add &#64;angular-architects/native-federation:init --project mf-a --port 4201 -type remote</code>
         </li>
-        <li>Install Bootstrap for Styling: <code>npm install &#64;ng-bootstrap/ng-bootstrap</code></li>
-        <li>Install Native Federation Dependency: <code>npm i &#64;angular-architects/native-federation -D</code></li>
-        <li>Configure Microfrontends for Federation:
-          <ul>
-            <li>mf-b: <code>ng add &#64;angular-architects/native-federation:init --project mf-b --port 4202 -type remote</code></li>
-            <li>mf-a: <code>ng add &#64;angular-architects/native-federation:init --project mf-a --port 4201 -type remote</code></li>
-          </ul>
-        </li>
-        <li>Configure Shell as Dynamic Host: <code>ng add &#64;angular-architects/native-federation:init --project shell --port 4200 -type dynamic-host</code></li>
-        <li>Rename Application Component Selectors (if necessary) to avoid conflicts.</li>
-        <li>Add Routes to Shell Application: (Create `app.routes.ts` in the shell project)</li>
-        <li>Implement Navigation in Shell: (Modify `app.component.html` in the shell project)
-          <ul>
-            <li>Add nav element for navigation bar.</li>
-            <li>Create an unordered list <code>ul</code> within nav for navigation links.</li>
-            <li>Add list items li with `routerLink` directives for each navigation link.</li>
-          </ul>
-        </li>
-        <li>Prepare to deployment, added exact URLs into federation.manifes.json and added scripts to deploy prepare-gh-pages which copy to proper folders, and add deploy-gh</li>
-      </ol>    
-    <p style="text-align: center" class="text-info">TODO List:</p>
-    <ul>
-        <li>Alignment of nav bar, footer vertically middle, it is a UI. cosmetics only</li>
-        <li>Use Tailwind with PrimeNG</li>
-        <li>Implement the Micro Frontend A and Micro Frontend B (remote) apps menu hierarchy</li>
-        <li>Containerize the different apps </li>
-    </ul>
+      </ul>
+    </li>
+    <li>Configure Shell as Dynamic Host:
+      <code>ng add &#64;angular-architects/native-federation:init --project shell --port 4200 -type dynamic-host</code>
+    </li>
+    <li>Rename Application Component Selectors (if necessary) to avoid conflicts.</li>
+    <li>Add Routes to Shell Application: (Create <code>app.routes.ts</code> in the shell project)</li>
+    <li>Implement Navigation in Shell: (Modify <code>app.component.html</code> in the shell project)
+      <ul>
+        <li>Add <code>&lt;nav&gt;</code> element for navigation bar.</li>
+        <li>Create a <code>ul</code> for navigation links.</li>
+        <li>Add <code>li</code> with `routerLink` directives for each route.</li>
+      </ul>
+    </li>
+    <li>Prepare deployment: add exact URLs to `federation.manifest.json`, copy to correct folders, and run `deploy-gh`.
+    </li>
+  </ol>
+
+  <p class="home-description">TODO List:</p>
+  <ul>
+    <li>Align nav bar and footer vertically in the center (UI only)</li>
+    <li>Use Tailwind with PrimeNG</li>
+    <li>Implement menu hierarchy for Micro-Frontend A and B</li>
+    <li>Containerize the apps</li>
+  </ul>
 </div>

@@ -1,8 +1,12 @@
-<h2 class="text-primary" style="text-align: center;">Micro Frontend Shell app Default page works!</h2>
-<div>
-    <h3 style="text-align: center;">About the structure and deployment</h3>
-    <div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
-        <ul>
+<div class="page-container">
+    <h2 class="page-title">Micro-Frontend Shell app Default page works!</h2>
+
+    <div class="content-container">
+        <ul class="content-list">
+            <li class="no-bullet">
+                <h3 class="section-title">About the Apps structure and deployment</h3>
+            </li>
+
             <li>workspace
                 <ul>
                     <li>projects
@@ -15,16 +19,35 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="spacer"></li>
+
             <li>Deployment steps
                 <ol>
-                    <li>npm run remove-dists</li>
-                    <li>npm run build-all</li>
-                    <li>npm run deploy-gh</li>
+                    <li>npm run remove-dists (dist, dist-gh)</li>
+                    <li>npm run build-all (npm run build-lib && npm run build-mf-a && npm run build-mf-b && npm run
+                        build-shell)</li>
+                    <li>npm run deploy-gh (npm run prepare-gh-pages && gh-pages -d dist-gh -b gh-pages)</li>
                 </ol>
             </li>
+
+            <li class="spacer"></li>
+
+            <li>Local Run (do not forget cd workspace)
+                <ol>
+                    <li>npm run build-lib-dev</li>
+                    <li>npm run start-b</li>
+                    <li>npm run start-a</li>
+                    <li>npm run start-s</li>
+                    <li>localhost:4200</li>
+                </ol>
+            </li>
+
+            <li class="spacer"></li>
+
+            <li class="no-bullet centered-link">
+                <a href="https://github.com/lkovari/mf-with-native-federation" target="_blank" rel="noopener">Repo</a>
+            </li>
         </ul>
-    </div>
-    <div style="text-align: center;">
-        <a href="https://github.com/lkovari/mf-with-native-federation" alt="reposource">Repo</a>
     </div>
 </div>

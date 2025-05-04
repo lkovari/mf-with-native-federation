@@ -42,9 +42,31 @@ Add list items li with `routerLink` directives for each navigation link.
 
 Prepare to deployment, added exact URLs into federation.manifes.json and added scripts to deploy prepare-gh-pages which copy to proper folders, and add deploy-gh
 
+#About the Apps structure and deployment
+
+Structure
+workspace
+projects
+shell (main) app
+mf-a (remote) app
+mf-b (remote) app
+lk-common-lib (contains only one component AngularVersionComponent)
+
+Deployment steps
+npm run remove-dists (dist, dist-gh)
+npm run build-all (npm run build-lib && npm run build-mf-a && npm run build-mf-b && npm run build-shell)
+npm run deploy-gh (npm run prepare-gh-pages && gh-pages -d dist-gh -b gh-pages)
+
+Local Run (do not forget cd workspace)
+npm run build-lib-dev
+npm run start-b
+npm run start-a
+npm run start-s
+localhost:4200
+
 Next To do:
 
 - Alignment of nav bar, footer vertically middle, it is a UI. cosmetics only
 - Use Tailwind with PrimeNG
-- Implement the Micro Frontend A and Micro Frontend B (remote) apps menu hierarchy
+- Implement the Micro-Frontend A and Micro-Frontend B (remote) apps menu hierarchy
 - Containerize the different apps
