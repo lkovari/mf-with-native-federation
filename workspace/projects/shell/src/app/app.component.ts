@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'Micro-Frontend Shell (host)';
-
+  lastUpdateDate = new Date('05/11/2025 01:50 AM');
 }
 
 
